@@ -5,8 +5,25 @@
       uploadFile(selectedFile);
     });
 
+    async function uploadFile(file) {
+      const formData = new FormData();
+      formData.append('file', file);
 
-https://www.google.com/search?q=upload+a+file+js&rlz=1C1GCEA_enMX1158MX1158&oq=upload+a+file+js&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABgTGBYYHjIKCAIQABgTGBYYHjIKCAMQABgTGBYYHjIKCAQQABgTGBYYHjIKCAUQABgTGBYYHjIKCAYQABgTGBYYHjIKCAcQABgTGBYYHjIKCAgQABgTGBYYHjIKCAkQABgTGBYYHtIBCTExNzQyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
+      try {
+        const response = await fetch('/upload', { // Replace '/upload' with your server endpoint
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          console.log('File uploaded successfully');
+        } else {
+          console.error('File upload failed');
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    }
 
 
 
@@ -15,10 +32,10 @@ https://www.google.com/search?q=upload+a+file+js&rlz=1C1GCEA_enMX1158MX1158&oq=u
 
 
 
+/*
+Puedes instalar la librería usando npm install docx-pdf o yarn add docx-pdf.
 
-
-
-/*function Person (first, last, age, eye) {
+function Person (first, last, age, eye) {
   this.firstName = first;
   this.lastName = last;
   this.age = age;
